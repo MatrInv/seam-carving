@@ -28,3 +28,17 @@ void image_processor::convolve(Mat* src, Mat* dst, Mat* kernel)
             dst->at<uchar>(row,col) = (uchar)std::abs(value / 4);
         }
 }
+
+void image_processor::gradient_map(Mat* src, Mat* dst)
+{
+    int sobel[9] = 
+    {
+        -1,-2,-1,
+        -2, 0, 2,
+         1, 2, 1
+    };
+
+    Mat kernel = Mat( 3, 3, CV_32S, sobel );
+
+    this->convolve(src, dst, &kernel);
+}

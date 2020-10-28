@@ -6,5 +6,6 @@ class image_processor
 {
     public:
     image_processor();
-    void convolve(Mat* img, Mat* dst, Mat* kernel);
+    void convolve(Mat* src, Mat* dst, Mat* kernel);
+    void gradient_map(Mat* src, Mat* dst);
 };

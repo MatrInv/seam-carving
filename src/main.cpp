@@ -10,17 +10,8 @@ int main()
     Mat img = imread("img/hill.jpg", IMREAD_GRAYSCALE);
     image_processor ip = image_processor();
 
-    int sobel[9] = 
-    {
-        -1,-2,-1,
-        -2, 0, 2,
-         1, 2, 1
-    };
-
-    Mat kernel = Mat( 3, 3, CV_32S, sobel );
-
     Mat res = Mat(img.rows, img.cols, img.type());
-    ip.convolve(&img, &res, &kernel);
+    ip.gradient_map(&img, &res);
 
     imshow("result", res);
     waitKey(0);
