@@ -8,4 +8,5 @@ class image_processor
     image_processor();
     void convolve(Mat* src, Mat* dst, Mat* kernel);
     void gradient_map(Mat* src, Mat* dst);
+    void energy_map(Mat* src, Mat* dst);
 };
